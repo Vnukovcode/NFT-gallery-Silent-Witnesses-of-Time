@@ -23,19 +23,15 @@ export const PersonDialog: Dialog[] = [
   },
   // #3
   {
-    text: "This is a Digital Temple, like the one that stands in your universe. Like Shwedagon Pagoda.",
+    text: "NFT Art Gallery \"Silent Witnesses of Time\"",
   },
   // #4
   {
-    text: "This temple is dedicated to the path and all-consuming being. I hope that after passing this path, your horizons will broaden.",
+    text: "An image at the intersection of architecture and art object. You climb the steps of the pedestal, like the Spanish conquistador who first entered the steps of the ancient temple of the Incas.",
   },
   // #5
   {
-    text: "Visit my brother next door, we will be happy with any donation... If, of course, he is still in this Metaverse.",
-  },
-  // #6
-  {
-    text: "To start you need to understand the principle of inaction, let go of the situation. It's better not to move, there is nothing to bustle here.",
+    text: "On the upper landing you will find a teleporter. This is the bifurcation point. Here everyone decides for himself: to walk by or take a red pill from Morpheus and see how deep the rabbit hole is ...",
     triggeredByNext: () => person.playAnimation('Goodbye', true, 2),
     isEndOfDialog: true,
   }
