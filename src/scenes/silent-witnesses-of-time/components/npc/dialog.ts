@@ -4,7 +4,7 @@ import { person } from './person'
 export const PersonDialog: Dialog[] = [
   // #0
   {
-    text: "Hi, I'm Monk - welcome to Digital Temple",
+    text: "Hi, I'm Monk - welcome to NFT Art Gallery \"Silent Witnesses of Time\"",
   },
   // #1
   {
@@ -23,15 +23,19 @@ export const PersonDialog: Dialog[] = [
   },
   // #3
   {
-    text: "NFT Art Gallery \"Silent Witnesses of Time\"",
+    text: "An image at the intersection of architecture and art object.",
   },
   // #4
   {
-    text: "An image at the intersection of architecture and art object. You climb the steps of the pedestal, like the Spanish conquistador who first entered the steps of the ancient temple of the Incas.",
+    text: "You climb the steps of the pedestal, like the Spanish conquistador who first entered the steps of the ancient temple of the Incas.",
   },
   // #5
   {
-    text: "On the upper landing you will find a teleporter. This is the bifurcation point. Here everyone decides for himself: to walk by or take a red pill from Morpheus and see how deep the rabbit hole is ...",
+    text: "On the upper landing you will find a teleporter. This is the bifurcation point.",
+  },
+  // #6
+  {
+    text: "Here everyone decides for himself: to walk by or take a red pill from Morpheus and see how deep the rabbit hole is...",
     triggeredByNext: () => person.playAnimation('Goodbye', true, 2),
     isEndOfDialog: true,
   }
