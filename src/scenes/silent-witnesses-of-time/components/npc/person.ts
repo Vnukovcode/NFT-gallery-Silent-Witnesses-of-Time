@@ -19,7 +19,7 @@ export const person = new NPC(
     engine.addEntity(dummyent)
 
     // sound
-    person.addComponentOrReplace(new AudioSource(new AudioClip('sounds/monk.mp3')))
+    person.addComponentOrReplace(new AudioSource(new AudioClip(config.audioClip)))
     person.getComponent(AudioSource).playOnce()
 
     // dialog UI

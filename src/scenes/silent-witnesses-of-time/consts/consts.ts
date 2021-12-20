@@ -13,3 +13,7 @@ export const shapesMap = {
 export const portraitsMap = {
     person: 'images/silent-witnesses-of-time/portraits/monk.png'
 };
+
+export const audioMap = {
+    person: 'sounds/silent-witnesses-of-time/monk.mp3'
+}
