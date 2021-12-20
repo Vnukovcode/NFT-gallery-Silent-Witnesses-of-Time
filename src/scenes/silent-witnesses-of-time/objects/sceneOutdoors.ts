@@ -1,8 +1,9 @@
 import { createEntity, setPosition } from '../utils/objectsUtils';
 
-export const createOutdoors = () => createEntity({
+export const createOutdoors = (parent?: Entity) => createEntity({
     name: 'sceneOutdoors',
-    position: setPosition(64, 0, 0),
+    position: setPosition(0, 0, 0),
     rotation: new Quaternion(0, 0, 0, 1),
-    scale: new Vector3(1, 1, 1)
+    scale: new Vector3(1, 1, 1),
+    parent
 });

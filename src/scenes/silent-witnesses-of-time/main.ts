@@ -2,21 +2,23 @@ import { createOutdoors } from './objects/sceneOutdoors';
 import { createClaw1, createClaw2 } from './objects/claws';
 import { sand1, sand2, sand3, sand4 } from './objects/sand';
 import { createPlant1, createPlant2 } from './objects/plants';
-import { createGalleryBuilding } from './objects/galleryBuilding';
 import { createStairs } from './objects/stairs';
 import { createTower } from './objects/tower';
 import { SimpleRotateSystem } from './systems/SimpleRotate';
-import { Like } from './components/Like'
-import { setPosition } from './utils/objectsUtils'
-import { person } from './components/npc/person'
+import { Like } from './components/Like';
+import { createEntity, setPosition } from './utils/objectsUtils';
+import { person } from './components/npc/person'; // NPC для встречи гостей
 
 export function createSilentWitnessesOfTimeScene () {
-  const outdoorsScene = createOutdoors();
-  engine.addEntity(outdoorsScene);
+  const mainScene = createEntity({
+    name: 'mainScene',
+    position: setPosition(64, 0, 0),
+    rotation: new Quaternion(0, 0, 0, 1),
+    scale: new Vector3(1, 1, 1)
+  });
 
-  // const galleryBuilding = createGalleryBuilding(outdoorsScene)
-  // engine.addEntity(galleryBuilding);
-  // engine.addSystem(new SimpleRotateSystem(galleryBuilding));
+  const outdoorsScene = createOutdoors(mainScene);
+  engine.addEntity(outdoorsScene);
   
   engine.addEntity(createStairs(outdoorsScene))
   
@@ -34,6 +36,9 @@ export function createSilentWitnessesOfTimeScene () {
   
   engine.addEntity(createClaw1(outdoorsScene));
   engine.addEntity(createClaw2(outdoorsScene));
+
+  
+  engine.addEntity(createPlant2(outdoorsScene));
   
   const like = new Like(
     {
