@@ -1,6 +1,6 @@
 import {NPC, NPCDelay } from '@dcl/npc-scene-utils'
 import { config } from './config'
-import { PersonDialog } from './dialog'
+import { getPersonDialog } from './dialog'
 import { shapesMap } from '../../consts/consts';
 
 export const person = new NPC(
@@ -23,7 +23,7 @@ export const person = new NPC(
     person.getComponent(AudioSource).playOnce()
 
     // dialog UI
-    person.talk(PersonDialog)
+    person.talk(getPersonDialog(person))
   },
   {
     faceUser: true,
