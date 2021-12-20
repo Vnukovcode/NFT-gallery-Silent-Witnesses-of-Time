@@ -1,3 +1,4 @@
+import { createIndoors } from './objects/sceneIndoors';
 import { createOutdoors } from './objects/sceneOutdoors';
 import { createClaw1, createClaw2 } from './objects/claws';
 import { sand1, sand2, sand3, sand4 } from './objects/sand';
@@ -10,6 +11,7 @@ import { setPosition } from './utils/objectsUtils';
 import { person } from './components/npc/person'; // NPC для встречи гостей
 
 export function createSilentWitnessesOfTimeScene () {
+  const indoorsScene = createIndoors();
   const outdoorsScene = createOutdoors();
   engine.addEntity(outdoorsScene);
   
@@ -35,7 +37,7 @@ export function createSilentWitnessesOfTimeScene () {
   
   const like = new Like(
     {
-      position: setPosition(66.5, 1, 0.5),
+      position: setPosition(18.5, 1, 16.5),
       rotation: Quaternion.Euler(0, 0, 0),
       scale: new Vector3(0.6, 0.6, 0.6)
     },
