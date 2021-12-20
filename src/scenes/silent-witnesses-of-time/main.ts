@@ -6,18 +6,11 @@ import { createStairs } from './objects/stairs';
 import { createTower } from './objects/tower';
 import { SimpleRotateSystem } from './systems/SimpleRotate';
 import { Like } from './components/Like';
-import { createEntity, setPosition } from './utils/objectsUtils';
+import { setPosition } from './utils/objectsUtils';
 import { person } from './components/npc/person'; // NPC для встречи гостей
 
 export function createSilentWitnessesOfTimeScene () {
-  const mainScene = createEntity({
-    name: 'mainScene',
-    position: setPosition(64, 0, 0),
-    rotation: new Quaternion(0, 0, 0, 1),
-    scale: new Vector3(1, 1, 1)
-  });
-
-  const outdoorsScene = createOutdoors(mainScene);
+  const outdoorsScene = createOutdoors();
   engine.addEntity(outdoorsScene);
   
   engine.addEntity(createStairs(outdoorsScene))
