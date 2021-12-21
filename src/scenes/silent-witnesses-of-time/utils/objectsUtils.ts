@@ -1,7 +1,7 @@
 // Параметры сущности (модель, вправо, вверх, вдаль).
 export interface ICreateEntityParams extends TransformConstructorArgs {
   name?: string;
-  shape?: GLTFShape | NFTShape;
+  shape?: Shape;
   shapeSource?: string;
   parent?: Entity;
 }

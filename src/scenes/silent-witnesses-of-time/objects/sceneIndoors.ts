@@ -3,10 +3,11 @@ import { createGrass1, createGrass2, createGrass3, createGrass4 } from '../objec
 import { createStairs } from '../objects/stairs';
 import { createWalls1, createWalls2 } from '../objects/walls';
 import { createNFT1, createNFT2, createNFT3, createNFT4, createNFT5, createNFT6, createNFT7 } from '../objects/nft';
+import { VECTOR_OFFSET } from '../offsets';
 
 export const createIndoorsScene = () => createEntity({
     name: 'sceneIndoors',
-    position: setPosition(16, 0, 16),
+    position: setPosition(0, 0, 0).add(VECTOR_OFFSET),
     rotation: new Quaternion(0, 0, 0, 1),
     scale: new Vector3(1, 1, 1)
 });

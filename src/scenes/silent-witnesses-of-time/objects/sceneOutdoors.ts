@@ -5,11 +5,12 @@ import { createPlant1, createPlant2 } from '../objects/plants';
 import { createPodium } from '../objects/podium';
 import { createTower } from '../objects/tower';
 import { SimpleRotateSystem } from '../systems/SimpleRotate';
+import { VECTOR_OFFSET } from '../offsets';
 
 export const createOutdoorsLayout = (parent?: Entity) => createEntity({
     name: 'sceneOutdoors',
     parent,
-    position: setPosition(16, 0, 16),
+    position: setPosition(0, 0, 0).add(VECTOR_OFFSET),
     rotation: new Quaternion(0, 0, 0, 1),
     scale: new Vector3(1, 1, 1)
 });
