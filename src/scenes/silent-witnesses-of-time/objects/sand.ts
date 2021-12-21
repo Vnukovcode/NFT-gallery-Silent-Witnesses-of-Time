@@ -1,7 +1,7 @@
 import { createEntity, createShape, ICreateEntityParams, setPosition } from '../utils/objectsUtils';
 import { shapesMap } from '../consts/consts';
 
-const sandShape = createShape(shapesMap.dustySand);
+const sandShape = createShape(shapesMap.sand);
 
 function createSand (params: ICreateEntityParams): Entity {
     return createEntity({ ...params, shape: sandShape });

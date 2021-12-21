@@ -1,13 +1,13 @@
 // Параметры сущности (модель, вправо, вверх, вдаль).
 export interface ICreateEntityParams extends TransformConstructorArgs {
   name?: string;
-  shape?: GLTFShape;
+  shape?: GLTFShape | NFTShape;
   shapeSource?: string;
   parent?: Entity;
 }
 
 // Создание формы объекта.
-export function createShape (shapeSource: string) {
+export function createShape (shapeSource: string): GLTFShape {
   const shape = new GLTFShape(shapeSource);
 
   shape.withCollisions = true;
@@ -16,6 +16,18 @@ export function createShape (shapeSource: string) {
 
   return shape;
 } 
+
+export function createNFTShape (shapeSource: string, color?: Color3): NFTShape {
+    const shape = new NFTShape(shapeSource);
+    shape.withCollisions = true
+    shape.isPointerBlocker = true
+    shape.visible = true
+    if (color) {
+        shape.color = color;
+    }
+
+    return shape;
+};
 
 // Создание сущности (модель, вправо, вверх, вдаль).
 export function createEntity({ shape, position, rotation, scale, name, shapeSource, parent }: ICreateEntityParams) {
