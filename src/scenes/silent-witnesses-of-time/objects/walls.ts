@@ -14,7 +14,7 @@ export const createWalls2 = (parent?: Entity) => createEntity({
     name: 'walls2',
     parent,
     shapeSource: shapesMap.walls2,
-    position: setPosition(17, 0, 9.5),
+    position: setPosition(16.2236270904541, 0, 16.5),
     rotation: new Quaternion(0, 0, 0, 1),
-    scale: new Vector3(3.433763265609741, 3.2235658168792725, 3.433763265609741)
+    scale: new Vector3(0.16167378425598145, 0.16167378425598145, 0.16167378425598145)
 })

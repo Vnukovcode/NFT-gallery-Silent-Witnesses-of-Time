@@ -10,7 +10,7 @@ export const shapesMap = {
     person: 'models/silent-witnesses-of-time/monk.glb',
     stairs: 'models/silent-witnesses-of-time/LESTNICA_collider.glb',
     walls1: 'models/silent-witnesses-of-time/STENKI.glb',
-    walls2: 'models/silent-witnesses-of-time/stenki5555.glb',
+    walls2: 'models/silent-witnesses-of-time/1.glb',
 };
 
 export const portraitsMap = {

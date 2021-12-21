@@ -7,13 +7,33 @@ export function createSilentWitnessesOfTimeScene () {
   const outdoorsScene = createOutdoorsLayout();
   const indoorsScene = createIndoorsScene();
   engine.addEntity(outdoorsScene);
+  engine.addEntity(indoorsScene);
+  
   showOutdoorsScene(outdoorsScene);
 
-  // engine.removeEntity(outdoorsScene);
-
-  // engine.addEntity(indoorsScene);
-  // showIndoorsScene(indoorsScene);
-
+  // Create an entity
+  const box = new Entity()
+  
+  // Create and add a `Transform` component to that entity
+  box.addComponent(new Transform())
+  
+  // Set the fields in the component
+  box.getComponent(Transform).position.set(32, 2.4, 32)
+  
+  // Create and apply a `BoxShape` component to give the entity a visible form
+  box.addComponent(new BoxShape())
+  box.addComponent(
+    new OnPointerDown(
+      (e) => {
+        engine.removeEntity(outdoorsScene)
+        showIndoorsScene(indoorsScene)
+      },
+      { button: ActionButton.POINTER }
+    )
+  )
+  
+  engine.addEntity(box);
+  
   const like = new Like(
     {
       position: new Vector3(18.5, 1, 16.5),
