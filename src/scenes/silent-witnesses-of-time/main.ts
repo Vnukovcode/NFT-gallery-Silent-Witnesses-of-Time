@@ -1,9 +1,8 @@
-import { createIndoors } from './objects/sceneIndoors';
 import { createOutdoors } from './objects/sceneOutdoors';
 import { createClaw1, createClaw2 } from './objects/claws';
 import { sand1, sand2, sand3, sand4 } from './objects/sand';
 import { createPlant1, createPlant2 } from './objects/plants';
-import { createStairs } from './objects/stairs';
+import { createPodium } from './objects/podium';
 import { createTower } from './objects/tower';
 import { SimpleRotateSystem } from './systems/SimpleRotate';
 import { Like } from './components/Like';
@@ -11,11 +10,10 @@ import { setPosition } from './utils/objectsUtils';
 import { person } from './components/npc/person'; // NPC для встречи гостей
 
 export function createSilentWitnessesOfTimeScene () {
-  const indoorsScene = createIndoors();
   const outdoorsScene = createOutdoors();
   engine.addEntity(outdoorsScene);
   
-  engine.addEntity(createStairs(outdoorsScene))
+  engine.addEntity(createPodium(outdoorsScene))
   
   engine.addEntity(createPlant1(outdoorsScene))  
   engine.addEntity(createPlant2(outdoorsScene))
