@@ -1,5 +1,5 @@
 import { createEntity, setPosition } from '../utils/objectsUtils';
-import { shapesMap } from '../consts/consts';
+import { shapesMap } from '../consts/resources';
 
 export const createTower = (parent?: Entity) => createEntity({
     name: 'tower',

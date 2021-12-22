@@ -1,5 +1,5 @@
 import { createEntity, createShape, ICreateEntityParams, setPosition } from '../utils/objectsUtils';
-import { shapesMap } from '../consts/consts';
+import { shapesMap } from '../consts/resources';
 
 const sandShape = createShape(shapesMap.sand);
 

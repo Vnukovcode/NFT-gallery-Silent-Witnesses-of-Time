@@ -7,6 +7,10 @@ import { createTower } from '../objects/tower';
 import { SimpleRotateSystem } from '../systems/SimpleRotate';
 import { VECTOR_OFFSET } from '../offsets';
 
+// Все дочерние объекты внешней сцены.
+let children: Entity[] = [];
+
+// Создаём (но не рендерим) лейаут внешней сцены. (возвращает Entity лейаута)
 export const createOutdoorsLayout = (parent?: Entity) => createEntity({
     name: 'sceneOutdoors',
     parent,
@@ -15,24 +19,25 @@ export const createOutdoorsLayout = (parent?: Entity) => createEntity({
     scale: new Vector3(1, 1, 1)
 });
 
-export function showOutdoorsScene (outdoorsScene: Entity) {  
-    engine.addEntity(createPodium(outdoorsScene))
-    
-    engine.addEntity(createPlant1(outdoorsScene))  
-    engine.addEntity(createPlant2(outdoorsScene))
-    
-    engine.addEntity(sand1(outdoorsScene));
-    engine.addEntity(sand2(outdoorsScene));
-    engine.addEntity(sand3(outdoorsScene));
-    engine.addEntity(sand4(outdoorsScene));
+// Создаём (но не рендерим) все дочерние объекты. Добавляем в массив children для дальнейшей обработки.
+export function createChildrenOutdoors (outdoorsScene: Entity) {
+    children.push(
+        // Podium
+        createPodium(outdoorsScene),
+        // Plants
+        createPlant1(outdoorsScene),  
+        createPlant2(outdoorsScene),
+        // Sand floor
+        sand1(outdoorsScene),
+        sand2(outdoorsScene),
+        sand3(outdoorsScene),
+        sand4(outdoorsScene),
+        // Architect claws
+        createClaw1(outdoorsScene),
+        createClaw2(outdoorsScene)
+    )
     
     const tower = createTower(outdoorsScene);
-    engine.addEntity(tower);
     engine.addSystem(new SimpleRotateSystem(tower));
-    
-    engine.addEntity(createClaw1(outdoorsScene));
-    engine.addEntity(createClaw2(outdoorsScene));
-  
-    
-    engine.addEntity(createPlant2(outdoorsScene));
+    children.push(tower);
 }

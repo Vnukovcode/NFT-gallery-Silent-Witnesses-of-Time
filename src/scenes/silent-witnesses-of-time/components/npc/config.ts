@@ -1,4 +1,4 @@
-import { portraitsMap } from '../../consts/consts'
+import { portraitsMap } from '../../consts/resources'
 import { VECTOR_OFFSET } from '../../offsets'
 import { setPosition } from '../../utils/objectsUtils'
 

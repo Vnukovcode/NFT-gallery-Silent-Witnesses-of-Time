@@ -1,0 +1,1 @@
+export const jumpVector = new Vector3(0, 3, 0);

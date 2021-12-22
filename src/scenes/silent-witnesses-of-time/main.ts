@@ -1,33 +1,37 @@
-import { showOutdoorsScene, createOutdoorsLayout } from './objects/sceneOutdoors';
-import { createIndoorsScene, showIndoorsScene } from './objects/sceneIndoors';
+import { createChildrenOutdoors, createOutdoorsLayout } from './objects/sceneOutdoors';
+import { createIndoorsLayout, createChildrenIndoors } from './objects/sceneIndoors';
 import { Like } from './components/Like';
 import { person } from './components/npc/person'; // NPC для встречи гостей
 import { createTeleport } from './objects/teleport';
 import { setPosition } from './utils/objectsUtils';
 import { VECTOR_OFFSET } from './offsets';
+import { movePlayerTo } from '@decentraland/RestrictedActions';
+import { jumpVector } from './consts/vectors';
 
 export function createSilentWitnessesOfTimeScene () {
-  const outdoorsScene = createOutdoorsLayout();
-  const indoorsScene = createIndoorsScene();
-  engine.addEntity(outdoorsScene);
-  engine.addEntity(indoorsScene);
+  const outdoors = createOutdoorsLayout();
+  const indoors = createIndoorsLayout();
   
-  showOutdoorsScene(outdoorsScene);
-  // showIndoorsScene(indoorsScene);
+  createChildrenOutdoors(outdoors);
+  createChildrenIndoors(indoors);
 
-  // engine.removeEntity(indoorsScene);
+  engine.addEntity(outdoors);
 
   // Teleport
-  const teleport = createTeleport()
+  const teleport = createTeleport();
   teleport.addComponent(
     new OnPointerDown(
       (e) => {
-        engine.removeEntity(outdoorsScene)
-
-        // if (!indoorsScene.alive) {
-        //   log('indoors dead')
-        // }
-        showIndoorsScene(indoorsScene);
+        if (outdoors.alive) {
+            engine.removeEntity(outdoors);;
+            engine.addEntity(indoors);
+            movePlayerTo(teleport.getComponent(Transform).position.add(jumpVector));
+        // И наоборот
+        } else {
+            engine.removeEntity(indoors);
+            engine.addEntity(outdoors);
+            movePlayerTo(teleport.getComponent(Transform).position.add(jumpVector));
+        }
       },
       { button: ActionButton.POINTER }
     )

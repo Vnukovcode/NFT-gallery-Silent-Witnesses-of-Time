@@ -5,31 +5,37 @@ import { createWalls1, createWalls2 } from '../objects/walls';
 import { createNFT1, createNFT2, createNFT3, createNFT4, createNFT5, createNFT6, createNFT7 } from '../objects/nft';
 import { VECTOR_OFFSET } from '../offsets';
 
-export const createIndoorsScene = () => createEntity({
+// Все дочерние объекты внутренней сцены.
+let children: Entity[] = [];
+
+// Создаём (но не рендерим) лейаут сцены внутреннего пространства галереи. (возвращает Entity лейаута)
+export const createIndoorsLayout = (): Entity => createEntity({
     name: 'sceneIndoors',
     position: setPosition(0, 0, 0).add(VECTOR_OFFSET),
     rotation: new Quaternion(0, 0, 0, 1),
     scale: new Vector3(1, 1, 1)
 });
 
-export function showIndoorsScene (indoorsScene: Entity) {
-    engine.addEntity(createGrass1(indoorsScene));
-    engine.addEntity(createGrass2(indoorsScene));
-    engine.addEntity(createGrass3(indoorsScene));
-    engine.addEntity(createGrass4(indoorsScene));
-    
-    engine.addEntity(createStairs(indoorsScene));
-    
-    engine.addEntity(createWalls1(indoorsScene));
-    engine.addEntity(createWalls2(indoorsScene));
-    
-    engine.addEntity(createNFT1(indoorsScene));
-    engine.addEntity(createNFT2(indoorsScene));
-    engine.addEntity(createNFT3(indoorsScene));
-    engine.addEntity(createNFT4(indoorsScene));
-    engine.addEntity(createNFT5(indoorsScene));
-    engine.addEntity(createNFT6(indoorsScene));
-    engine.addEntity(createNFT7(indoorsScene));
-
-    return indoorsScene;
+// Создаём (но не рендерим) все дочерние объекты. Добавляем в массив children для дальнейшей обработки.
+export const createChildrenIndoors = (indoorsScene: Entity): void => {
+    children.push(
+	    // Grass floor
+        createGrass1(indoorsScene),
+        createGrass2(indoorsScene),
+        createGrass3(indoorsScene),
+        createGrass4(indoorsScene),
+        // Stairs
+        createStairs(indoorsScene),
+        // Walls
+        createWalls1(indoorsScene),
+        createWalls2(indoorsScene),
+        // NFT items
+        createNFT1(indoorsScene),
+        createNFT2(indoorsScene),
+        createNFT3(indoorsScene),
+        createNFT4(indoorsScene),
+        createNFT5(indoorsScene),
+        createNFT6(indoorsScene),
+        createNFT7(indoorsScene)
+	)
 }
