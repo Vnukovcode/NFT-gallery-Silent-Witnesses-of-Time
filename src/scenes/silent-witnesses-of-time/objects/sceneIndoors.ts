@@ -4,6 +4,7 @@ import { createStairs } from '../objects/stairs';
 import { createWalls1, createWalls2 } from '../objects/walls';
 import { createNFT1, createNFT2, createNFT3, createNFT4, createNFT5, createNFT6, createNFT7 } from '../objects/nft';
 import { LAYOUT_POSITION, LAYOUT_ROTATION } from '../consts';
+import { createSocialLink1, createSocialLink2, createSocialLink3, createSocialLink4, createSocialLink5, createSocialLink6 } from './social';
 
 // Все дочерние объекты внутренней сцены.
 let children: Entity[] = [];
@@ -36,6 +37,13 @@ export const createChildrenIndoors = (indoorsScene: Entity): void => {
         createNFT4(indoorsScene),
         createNFT5(indoorsScene),
         createNFT6(indoorsScene),
-        createNFT7(indoorsScene)
+        createNFT7(indoorsScene),
+        // Social links
+        createSocialLink1(indoorsScene),
+        createSocialLink2(indoorsScene),
+        createSocialLink3(indoorsScene),
+        createSocialLink4(indoorsScene),
+        createSocialLink5(indoorsScene),
+        createSocialLink6(indoorsScene)
 	)
 }

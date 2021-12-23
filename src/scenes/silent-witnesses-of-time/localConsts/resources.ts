@@ -13,6 +13,12 @@ export const shapesMap = {
     walls2: 'models/silent-witnesses-of-time/1.glb',
 };
 
+export const socialShapesMap = {
+    twitter: 'models/silent-witnesses-of-time/social/twitter.glb',
+    instagram: 'models/silent-witnesses-of-time/social/instagram.glb',
+    github: 'models/silent-witnesses-of-time/social/github.glb',
+};
+
 export const portraitsMap = {
     person: 'images/silent-witnesses-of-time/portraits/monk.png'
 };
