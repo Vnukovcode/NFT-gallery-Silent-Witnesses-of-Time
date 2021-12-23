@@ -3,7 +3,7 @@ import { createGrass1, createGrass2, createGrass3, createGrass4 } from '../objec
 import { createStairs } from '../objects/stairs';
 import { createWalls1, createWalls2 } from '../objects/walls';
 import { createNFT1, createNFT2, createNFT3, createNFT4, createNFT5, createNFT6, createNFT7 } from '../objects/nft';
-import { VECTOR_OFFSET } from '../offsets';
+import { LAYOUT_POSITION, LAYOUT_ROTATION } from '../consts';
 
 // Все дочерние объекты внутренней сцены.
 let children: Entity[] = [];
@@ -11,8 +11,8 @@ let children: Entity[] = [];
 // Создаём (но не рендерим) лейаут сцены внутреннего пространства галереи. (возвращает Entity лейаута)
 export const createIndoorsLayout = (): Entity => createEntity({
     name: 'sceneIndoors',
-    position: setPosition(0, 0, 0).add(VECTOR_OFFSET),
-    rotation: new Quaternion(0, 0, 0, 1),
+    position: LAYOUT_POSITION,
+    rotation: LAYOUT_ROTATION,
     scale: new Vector3(1, 1, 1)
 });
 

@@ -1,5 +1,5 @@
 import { createEntity, setPosition, ICreateEntityParams, createShape } from '../utils/objectsUtils';
-import { shapesMap } from '../consts/resources';
+import { shapesMap } from '../localConsts/resources';
 
 const grassShape = createShape(shapesMap.grass)
 

@@ -5,7 +5,7 @@ import { createPlant1, createPlant2 } from '../objects/plants';
 import { createPodium } from '../objects/podium';
 import { createTower } from '../objects/tower';
 import { SimpleRotateSystem } from '../systems/SimpleRotate';
-import { VECTOR_OFFSET } from '../offsets';
+import { LAYOUT_POSITION, LAYOUT_ROTATION } from '../consts';
 
 // Все дочерние объекты внешней сцены.
 let children: Entity[] = [];
@@ -14,8 +14,8 @@ let children: Entity[] = [];
 export const createOutdoorsLayout = (parent?: Entity) => createEntity({
     name: 'sceneOutdoors',
     parent,
-    position: setPosition(0, 0, 0).add(VECTOR_OFFSET),
-    rotation: new Quaternion(0, 0, 0, 1),
+    position: LAYOUT_POSITION,
+    rotation: LAYOUT_ROTATION,
     scale: new Vector3(1, 1, 1)
 });
 

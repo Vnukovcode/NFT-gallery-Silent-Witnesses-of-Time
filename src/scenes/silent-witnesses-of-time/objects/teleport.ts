@@ -1,4 +1,4 @@
-import { VECTOR_OFFSET } from "../offsets"
+import { VECTOR_OFFSET } from "../consts"
 import { createEntity, setPosition } from "../utils/objectsUtils"
 
   // Create an entity

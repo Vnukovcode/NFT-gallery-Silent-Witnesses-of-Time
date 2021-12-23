@@ -1,4 +1,4 @@
-import { shapesMap } from '../consts/resources';
+import { shapesMap } from '../localConsts/resources';
 import { setPosition} from '../utils/objectsUtils'
 
 const sceneMessageBus = new MessageBus()

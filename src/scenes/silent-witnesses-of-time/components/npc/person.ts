@@ -1,7 +1,7 @@
 import {NPC, NPCDelay } from '@dcl/npc-scene-utils'
 import { config } from './config'
 import { getPersonDialog } from './dialog'
-import { shapesMap } from '../../consts/resources';
+import { shapesMap } from '../../localConsts/resources';
 
 export const person = new NPC(
   {position: config.position, rotation: config.rotation},

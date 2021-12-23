@@ -4,9 +4,9 @@ import { Like } from './components/Like';
 import { person } from './components/npc/person'; // NPC для встречи гостей
 import { createTeleport } from './objects/teleport';
 import { setPosition } from './utils/objectsUtils';
-import { VECTOR_OFFSET } from './offsets';
+import { LIKE_COUNTER_ID, LIKE_COUNTER_POSITION } from './consts';
 import { movePlayerTo } from '@decentraland/RestrictedActions';
-import { jumpVector } from './consts/vectors';
+import { jumpVector } from './localConsts/vectors';
 
 export function createSilentWitnessesOfTimeScene () {
   const outdoors = createOutdoorsLayout();
@@ -41,10 +41,9 @@ export function createSilentWitnessesOfTimeScene () {
   // Likes counter
   const like = new Like(
     {
-      position: setPosition(2.5, 1, 0.5).add(VECTOR_OFFSET),
-      rotation: Quaternion.Euler(0, 0, 0),
+      position: LIKE_COUNTER_POSITION,
       scale: new Vector3(0.6, 0.6, 0.6)
     },
-    '61be21382b9ee78dd82fc2d2'
+    LIKE_COUNTER_ID
   )
 }

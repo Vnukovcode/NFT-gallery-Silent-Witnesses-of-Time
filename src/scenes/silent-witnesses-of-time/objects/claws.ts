@@ -1,5 +1,5 @@
 import { createEntity, setPosition } from '../utils/objectsUtils';
-import { shapesMap } from '../consts/resources';
+import { shapesMap } from '../localConsts/resources';
 
 export const createClaw1 = (parent?: Entity) => createEntity({
     name: 'claw1',

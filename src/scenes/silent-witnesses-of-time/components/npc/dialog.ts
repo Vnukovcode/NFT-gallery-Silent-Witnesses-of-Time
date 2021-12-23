@@ -1,10 +1,11 @@
 import { Dialog, NPC } from '@dcl/npc-scene-utils';
+import { NPC_NAME } from '../../consts';
 
 export function getPersonDialog (person: NPC): Dialog[] {
   return [
     // #0
     {
-      text: "Hi, I'm Monk - welcome to NFT Art Gallery \"Silent Witnesses of Time\"",
+      text: `Hi, I'm ${NPC_NAME} - welcome to NFT Art Gallery \"Silent Witnesses of Time\"`,
     },
     // #1
     {
