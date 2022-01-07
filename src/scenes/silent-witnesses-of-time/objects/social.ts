@@ -45,7 +45,7 @@ export const createSocialLink4 = (parent: Entity): Entity => createSocialLink({
 export const createSocialLink5 = (parent: Entity): Entity => createSocialLink({
     name: '@cryptoanarchisto',
     parent,
-    type: ESocialLinkType.GIT_HUB,
+    type: ESocialLinkType.GITHUB,
     url: 'https://github.com/cryptoanarchisto',
     position: setPosition(17.114953994750977, 2.629770278930664, 15.537853240966797),
     rotation: new Quaternion(3.8578679389002625e-16, -0.4280148446559906, 5.1023334890487604e-8, -0.9037717580795288),

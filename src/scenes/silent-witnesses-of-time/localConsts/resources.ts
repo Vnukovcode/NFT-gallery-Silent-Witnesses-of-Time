@@ -24,5 +24,6 @@ export const portraitsMap = {
 };
 
 export const audioMap = {
-    person: 'sounds/silent-witnesses-of-time/monk.mp3'
+    person: 'sounds/silent-witnesses-of-time/sounds_monk.mp3',
+    click: 'sounds/silent-witnesses-of-time/click.mp3'
 }

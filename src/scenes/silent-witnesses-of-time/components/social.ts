@@ -1,4 +1,4 @@
-import { socialShapesMap } from "../localConsts/resources";
+import { audioMap, socialShapesMap } from "../localConsts/resources";
 
 interface ICreateSocialLinkParams extends TransformConstructorArgs {
     type: ESocialLinkType;
@@ -9,13 +9,13 @@ interface ICreateSocialLinkParams extends TransformConstructorArgs {
 
 export enum ESocialLinkType {
     TWITTER = 'TWITTER',
-    GIT_HUB = 'GIT_HUB',
+    GITHUB = 'GITHUB',
     INSTAGRAM = 'INSTAGRAM'
 }
 
 const shapeTypesMap = {
     [ESocialLinkType.TWITTER]: socialShapesMap.twitter,
-    [ESocialLinkType.GIT_HUB]: socialShapesMap.github,
+    [ESocialLinkType.GITHUB]: socialShapesMap.github,
     [ESocialLinkType.INSTAGRAM]: socialShapesMap.instagram,
 }
 
@@ -25,11 +25,15 @@ export function createSocialLink ({ type, url, parent, name, position, rotation,
 
     entity.addComponent(new GLTFShape(shapeTypesMap[type]));
     entity.addComponent(new Transform({ position, rotation, scale }));
+    entity.addComponent(new AudioSource(new AudioClip(audioMap.click)));
     entity.setParent(parent);
 
     entity.addComponent(
         new OnPointerDown(
-            () => openExternalURL(url),
+            () => {
+                entity.getComponent(AudioSource).playOnce();
+                openExternalURL(url);
+            },
             {
                 button: ActionButton.PRIMARY,
                 hoverText: entityName,
