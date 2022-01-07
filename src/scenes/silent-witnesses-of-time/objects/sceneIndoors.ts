@@ -1,9 +1,8 @@
 import { createEntity, setPosition } from '../utils/objectsUtils';
 import { createGrass1, createGrass2, createGrass3, createGrass4 } from '../objects/grass';
 import { createStairs } from '../objects/stairs';
-import { createWalls1, createWalls2 } from '../objects/walls';
-import { createNFT1, createNFT2, createNFT3, createNFT4, createNFT5, createNFT6, createNFT7 } from '../objects/nft';
-import { LAYOUT_POSITION, LAYOUT_ROTATION } from '../consts';
+import { createCeiling1, createCeiling2, createWalls } from '../objects/walls';
+import { createNFT1, createNFT2, createNFT3, createNFT4, createNFT5, createDoubleSet, createNFT6, createSetOf3 } from '../objects/nft';
 import { createSocialLink1, createSocialLink2, createSocialLink3, createSocialLink4, createSocialLink5, createSocialLink6 } from './social';
 
 // Все дочерние объекты внутренней сцены.
@@ -28,8 +27,9 @@ export const createChildrenIndoors = (indoorsScene: Entity): void => {
         // Stairs
         createStairs(indoorsScene),
         // Walls
-        createWalls1(indoorsScene),
-        createWalls2(indoorsScene),
+        createWalls(indoorsScene),
+        createCeiling1(indoorsScene),
+        createCeiling2(indoorsScene),
         // NFT items
         createNFT1(indoorsScene),
         createNFT2(indoorsScene),
@@ -37,7 +37,8 @@ export const createChildrenIndoors = (indoorsScene: Entity): void => {
         createNFT4(indoorsScene),
         createNFT5(indoorsScene),
         createNFT6(indoorsScene),
-        createNFT7(indoorsScene),
+        createDoubleSet(indoorsScene),
+        createSetOf3(indoorsScene),
         // Social links
         createSocialLink1(indoorsScene),
         createSocialLink2(indoorsScene),

@@ -1,4 +1,4 @@
-import { audioMap, socialShapesMap } from "../localConsts/resources";
+import { socialShapesMap } from "../localConsts/resources";
 
 interface ICreateSocialLinkParams extends TransformConstructorArgs {
     type: ESocialLinkType;
@@ -25,15 +25,11 @@ export function createSocialLink ({ type, url, parent, name, position, rotation,
 
     entity.addComponent(new GLTFShape(shapeTypesMap[type]));
     entity.addComponent(new Transform({ position, rotation, scale }));
-    entity.addComponent(new AudioSource(new AudioClip(audioMap.click)));
     entity.setParent(parent);
 
     entity.addComponent(
         new OnPointerDown(
-            () => {
-                entity.getComponent(AudioSource).playOnce();
-                openExternalURL(url);
-            },
+            () => openExternalURL(url),
             {
                 button: ActionButton.PRIMARY,
                 hoverText: entityName,

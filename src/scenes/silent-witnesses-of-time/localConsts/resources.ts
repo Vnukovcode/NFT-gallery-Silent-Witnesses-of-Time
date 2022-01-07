@@ -8,9 +8,11 @@ export const shapesMap = {
     grass: 'models/silent-witnesses-of-time/FloorBaseGrass_01/FloorBaseGrass_01.glb',
     heart: 'models/silent-witnesses-of-time/heart.glb',
     person: 'models/silent-witnesses-of-time/monk.glb',
-    stairs: 'models/silent-witnesses-of-time/LESTNICA_collider.glb',
-    walls1: 'models/silent-witnesses-of-time/STENKI.glb',
-    walls2: 'models/silent-witnesses-of-time/1.glb',
+    stairs: 'models/silent-witnesses-of-time/L001_collider.glb',
+    walls: 'models/silent-witnesses-of-time/1.glb',
+    ceiling: 'models/silent-witnesses-of-time/potolok.glb',
+    doubleSet: 'models/silent-witnesses-of-time/spina_kspine.glb',
+    setOf3: 'models/silent-witnesses-of-time/kartin_3.glb',
 };
 
 export const socialShapesMap = {
@@ -24,6 +26,5 @@ export const portraitsMap = {
 };
 
 export const audioMap = {
-    person: 'sounds/silent-witnesses-of-time/sounds_monk.mp3',
-    click: 'sounds/silent-witnesses-of-time/click.mp3'
+    person: 'sounds/silent-witnesses-of-time/sounds_monk.mp3'
 }
