@@ -14,8 +14,7 @@ let children: Entity[] = [];
 export const createOutdoorsLayout = (parent?: Entity) => createEntity({
     name: 'sceneOutdoors',
     parent,
-    position: LAYOUT_POSITION,
-    rotation: LAYOUT_ROTATION,
+    position: setPosition(0, 0, 0),
     scale: new Vector3(1, 1, 1)
 });
 

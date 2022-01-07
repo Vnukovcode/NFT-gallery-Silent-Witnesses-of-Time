@@ -10,10 +10,10 @@ import { createSocialLink1, createSocialLink2, createSocialLink3, createSocialLi
 let children: Entity[] = [];
 
 // Создаём (но не рендерим) лейаут сцены внутреннего пространства галереи. (возвращает Entity лейаута)
-export const createIndoorsLayout = (): Entity => createEntity({
+export const createIndoorsLayout = (parent?: Entity): Entity => createEntity({
     name: 'sceneIndoors',
-    position: LAYOUT_POSITION,
-    rotation: LAYOUT_ROTATION,
+    parent,
+    position: setPosition(0, 0, 0),
     scale: new Vector3(1, 1, 1)
 });
 

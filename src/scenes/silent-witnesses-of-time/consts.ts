@@ -17,7 +17,7 @@ export const LAYOUT_ROTATION = Quaternion.Euler(0, 180, 0);
 export const LIKE_COUNTER_POSITION = new Vector3(32, 1, 0.5).add(VECTOR_OFFSET);
 export const LIKE_COUNTER_ID = '61be21382b9ee78dd82fc2d2';
 
-// Для NPC-экскурса.
+// Для NPC-экскурсовода.
 export const NPC_POSITION = new Vector3(31.5, 1.5, 4).add(VECTOR_OFFSET);
 export const NPC_ROTATION = Quaternion.Euler(0, 90, 0);
 export const NPC_NAME = 'Alice';
