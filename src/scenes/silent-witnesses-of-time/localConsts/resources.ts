@@ -11,8 +11,11 @@ export const shapesMap = {
     stairs: 'models/silent-witnesses-of-time/L001_collider.glb',
     walls: 'models/silent-witnesses-of-time/1.glb',
     ceiling: 'models/silent-witnesses-of-time/potolok.glb',
-    doubleSet: 'models/silent-witnesses-of-time/spina_kspine.glb',
-    setOf3: 'models/silent-witnesses-of-time/kartin_3.glb',
+    albi: 'models/silent-witnesses-of-time/albi.glb',
+    andre: 'models/silent-witnesses-of-time/andre.glb',
+    leha: 'models/silent-witnesses-of-time/leha.glb',
+    sasha: 'models/silent-witnesses-of-time/sasha.glb',
+    natasha: 'models/silent-witnesses-of-time/natasha.glb',
 };
 
 export const socialShapesMap = {

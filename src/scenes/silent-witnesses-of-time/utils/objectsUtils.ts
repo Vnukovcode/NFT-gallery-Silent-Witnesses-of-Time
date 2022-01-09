@@ -52,6 +52,20 @@ export function createEntity({ shape, position, rotation, scale, name, shapeSour
   return entity;
 }
 
+export function hyperlink (entity: Entity, url: string, hoverText?: string): Entity {  
+  entity.addComponent(
+    new OnPointerDown(
+        () =>  openExternalURL(url),
+        {
+            button: ActionButton.POINTER,
+            hoverText,
+        }
+    )
+  );
+
+  return entity;
+}
+
 export function setPosition (x: number, y: number, z: number) {
   return new Vector3(x, y, z);
 }
