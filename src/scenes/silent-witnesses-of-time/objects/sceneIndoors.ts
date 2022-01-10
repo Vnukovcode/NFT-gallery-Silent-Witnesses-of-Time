@@ -5,6 +5,7 @@ import { createCeiling1, createCeiling2, createWalls } from '../objects/walls';
 import { createNFT1, createNFT2, createNFT3, createNFT4, createNFT5, createNFT6,
     createPicture1, createPicture2, createPicture3, createPicture4, createPicture5 } from './arts';
 import { createSocialLink1, createSocialLink2, createSocialLink3, createSocialLink4, createSocialLink5, createSocialLink6 } from './social';
+import { createPlatform1, createPlatform2, createPlatform3 } from './platform';
 
 // Все дочерние объекты внутренней сцены.
 let children: Entity[] = [];
@@ -49,6 +50,10 @@ export const createChildrenIndoors = (indoorsScene: Entity): void => {
         createSocialLink3(indoorsScene),
         createSocialLink4(indoorsScene),
         createSocialLink5(indoorsScene),
-        createSocialLink6(indoorsScene)
+        createSocialLink6(indoorsScene),
+        // Floating platform
+        createPlatform1(indoorsScene),
+        createPlatform2(indoorsScene),
+        createPlatform3(indoorsScene),
 	)
 }

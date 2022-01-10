@@ -16,6 +16,7 @@ export const shapesMap = {
     leha: 'models/silent-witnesses-of-time/leha.glb',
     sasha: 'models/silent-witnesses-of-time/sasha.glb',
     natasha: 'models/silent-witnesses-of-time/natasha.glb',
+    platform: 'models/silent-witnesses-of-time/Platform_Fantasy_Alt.glb',
 };
 
 export const socialShapesMap = {
