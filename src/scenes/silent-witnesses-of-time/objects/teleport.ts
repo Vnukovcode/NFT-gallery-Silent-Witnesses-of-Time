@@ -1,54 +1,45 @@
-import { movePlayerTo } from "@decentraland/RestrictedActions";
-import { createEntity, ICreateEntityParams, setPosition } from "../utils/objectsUtils"
+import { createEntity,setPosition } from "../utils/objectsUtils"
+import { TriggerComponent, TriggerBoxShape } from '@dcl/ecs-scene-utils';
 
-interface ICreateTeleportParams extends ICreateEntityParams {
-  parent: Entity;
-  newScene: Entity;
-  hoverText?: string;
+function changeScene (oldScene: Entity, newScene: Entity) {
+  if (oldScene.alive) {
+      engine.removeEntity(oldScene);
+      engine.addEntity(newScene);
+  }
 }
 
-const jumpVector = new Vector3(0, 3, 0);
-
-export const createTeleport = ({ parent, newScene, hoverText, ...createParams }: ICreateTeleportParams): void => {
+export const createTeleport = (outdoors: Entity, indoors: Entity): void => {
   const entity = createEntity({
-    ...createParams,
-    parent
+    parent: outdoors,
+    name: 'teleport',
+    shape: new BoxShape(),
+    position: setPosition(16, 2.4, 16)
   });
 
   entity.addComponent(
     new OnPointerDown(
-      (e) => {
-        if (parent.alive) {
-            engine.removeEntity(parent);
-            engine.addEntity(newScene);
-
-            movePlayerTo(Camera.instance.feetPosition.add(jumpVector));
-        }
-      },
-      { button: ActionButton.POINTER, hoverText }
+      () => changeScene(outdoors, indoors),
+      { button: ActionButton.POINTER, hoverText: 'Show the hidden' }
     )
   );
 }
 
-export const createTeleport1 = (parent: Entity, newScene: Entity): void => createTeleport(
-  {
+export const createLeaveGalleryTrigger = (parent: Entity, indoors: Entity, outdoors: Entity): Entity => {
+  const trigger = createEntity({
+    name: 'trigger',
     parent,
-    newScene,
-    hoverText: 'Show the hidden',
-    name: 'teleport',
-    shape: new BoxShape(),
-    position: setPosition(16, 2.4, 16)
-  }
-);
+    position: new Vector3(16.327768325805664, 0, 14.899538040161133),
+  })
 
-export const createTeleport2 = (parent: Entity, newScene: Entity): void => createTeleport(
-  {
-    parent,
-    newScene,
-    hoverText: 'Go outside',
-    name: 'teleport2',
-    shape: new SphereShape(),
-    position: setPosition(16.35, 1.5, 14.83),
-    scale: new Vector3(0.3, 0.3, 0.3)
-  }
-);
+  engine.addEntity(trigger);
+
+  trigger.addComponent(new TriggerComponent(
+    new TriggerBoxShape(new Vector3(20, 80, 20)),
+    {
+      enableDebug: false, // Переключить в true, чтобы увидеть очертания бокса для дебага.
+      onCameraExit: () => changeScene(indoors, outdoors),
+    }
+  ))
+
+  return trigger;
+}
